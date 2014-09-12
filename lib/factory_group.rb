@@ -1,14 +1,10 @@
 require "factory_group/version"
 require "factory_group/configuration"
-require "factory_group/factory_group"
-
-require "factory_group/factory_group"
+require "factory_group/group"
 
 module FactoryGroup
-  def self.define(:name, &block)
-    FactoryGroup.new.instance_eval do
-      yield(block)        
-    end 
+  def self.define(name, &block)
+    Group.new.instance_eval(&block)
   end
 
   def self.register(name)

@@ -1,7 +1,7 @@
 require "factory_girl"
 
 module FactoryGroup
-  class FactoryGroup
+  class Group
 
     def initialize
       @factories = {}
