@@ -2,6 +2,8 @@ require "factory_group/version"
 require "factory_group/configuration"
 require "factory_group/factory_group"
 
+require "factory_group/factory_group"
+
 module FactoryGroup
   def self.define(:name, &block)
     FactoryGroup.new.instance_eval do
