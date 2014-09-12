@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["yuv.slm@gmail.com"]
   spec.summary       = %q{Lets you create a group of factories}
   spec.description   = %q{Lets you create a group of factories which can be accessed from your specs}
-  spec.homepage      = ""
+  spec.homepage      = "http://codebrahma.com/factory_group/"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
@@ -20,6 +20,7 @@ Gem::Specification.new do |spec|
 
   spec.add_runtime_dependency "factory_girl"
 
+  spec.add_development_dependency "rspec"
   spec.add_development_dependency "bundler", "~> 1.6"
   spec.add_development_dependency "rake"
 end
