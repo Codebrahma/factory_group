@@ -9,8 +9,10 @@ module FactoryGroup
 
     attr_reader :factories
 
+    # Sets an instance variable with the name as the called method and
+    # assigns the args[0] passed to it.
     def method_missing(name, *args, &block)
-      puts "#{name} called in and the args are #{args.inspect}"
+      instance_variable_set( "@" + name.to_s, args[0])
     end
   end
 end
