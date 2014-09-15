@@ -1,5 +1,7 @@
 # FactoryGroup
 
+[![Gem Version](https://badge.fury.io/rb/factory_group.svg)](http://badge.fury.io/rb/factory_group)
+
 TODO: Write a gem description
 
 ## Installation
