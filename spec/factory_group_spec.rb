@@ -9,7 +9,7 @@ describe FactoryGroup do
 
   context "#define" do
     it "returns the result of evaluating the block passed to define method" do
-      expect(facory_group_definition).to eq "definition"
+      expect(facory_group_definition).to be_an_instance_of FactoryGroup::Group
     end
 
     it "stores the created group in the registry" do

@@ -10,6 +10,7 @@ module FactoryGroup
 
   def self.define(name, &block)
     group = Group.new
-    FactoryGroup.registry[name] = group.instance_eval(&block)
+    group.instance_eval(&block)
+    FactoryGroup.registry[name] = group
   end
 end
