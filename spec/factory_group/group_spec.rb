@@ -8,7 +8,7 @@ describe FactoryGroup::Group do
       user "name"
     end
   end
-  it "should set an instance variable" do
-    expect(group.instance_variable_get(:@user)).to eq "name"
+  it "stores the factories into the factories hash" do
+    expect(group.factories).to have_key :user
   end
 end
