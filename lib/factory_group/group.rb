@@ -12,7 +12,7 @@ module FactoryGroup
     # Sets an instance variable with the name as the called method and
     # assigns the args[0] passed to it.
     def method_missing(name, *args, &block)
-      instance_variable_set( "@" + name.to_s, args[0])
+      @factories[name] = args[0]
     end
   end
 end
