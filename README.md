@@ -1,6 +1,6 @@
 # FactoryGroup
 
-[![Gem Version](https://badge.fury.io/rb/factory_group.svg)](http://badge.fury.io/rb/factory_group)
+[![Gem Version](https://badge.fury.io/rb/factory_group.svg)](http://badge.fury.io/rb/factory_group)     [![Build Status](https://travis-ci.org/Codebrahma/factory_group.svg?branch=master)](https://travis-ci.org/Codebrahma/factory_group)
 
 TODO: Write a gem description
 
