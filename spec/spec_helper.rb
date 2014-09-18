@@ -6,7 +6,9 @@ require 'rspec'
 require 'debugger'
 
 require 'factory_group'
-require 'simplecov'
+require "codeclimate-test-reporter"
+
+CodeClimate::TestReporter.start
 
 RSpec.configure do |config|
   

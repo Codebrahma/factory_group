@@ -1,6 +1,6 @@
 # FactoryGroup
 
-[![Gem Version](https://badge.fury.io/rb/factory_group.svg)](http://badge.fury.io/rb/factory_group)     [![Build Status](https://travis-ci.org/Codebrahma/factory_group.svg?branch=master)](https://travis-ci.org/Codebrahma/factory_group)   [![Code Climate](https://codeclimate.com/github/Codebrahma/factory_group/badges/gpa.svg)](https://codeclimate.com/github/Codebrahma/factory_group)
+[![Gem Version](https://badge.fury.io/rb/factory_group.svg)](http://badge.fury.io/rb/factory_group)     [![Build Status](https://travis-ci.org/Codebrahma/factory_group.svg?branch=master)](https://travis-ci.org/Codebrahma/factory_group)   [![Code Climate](https://codeclimate.com/github/Codebrahma/factory_group/badges/gpa.svg)](https://codeclimate.com/github/Codebrahma/factory_group)    [![Dependency Status](https://gemnasium.com/Codebrahma/factory_group.svg)](https://gemnasium.com/Codebrahma/factory_group)
 
 TODO: Write a gem description
 

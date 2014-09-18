@@ -3,7 +3,7 @@ rvm:
 before_install:
   - gem update --system
 install: "bundle install"
-script: "bundle exec rspec spec/"
+script: "CODECLIMATE_REPO_TOKEN=d3636dec3241cd9be3710d4de49e56b5cba3e56cb682dd0025600b67209520b0 bundle exec rspec spec/"
 branches:
   only:
     - master
