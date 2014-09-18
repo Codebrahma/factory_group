@@ -6,6 +6,7 @@ require 'rspec'
 require 'debugger'
 
 require 'factory_group'
+require 'simplecov'
 
 RSpec.configure do |config|
   
