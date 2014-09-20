@@ -1,9 +1,10 @@
 require "spec_helper"
 
 describe FactoryGroup do
+
   let(:facory_group_definition) do
     FactoryGroup.define(:user_group) do
-      definition "definition"
+      user "A User"
     end
   end
 
@@ -14,6 +15,16 @@ describe FactoryGroup do
 
     it "stores the created group in the registry" do
       expect(described_class.registry).to have_key :user_group
+    end
+  end
+
+  context "#create" do
+    it "returns the created FactoryGroup::Group instance" do
+      expect(described_class.create(:user_group)).to be_an_instance_of OpenStruct
+    end
+
+    it "can be used to access the user variable" do
+      expect(described_class.create(:user_group).user).to eq "A User"
     end
   end
 

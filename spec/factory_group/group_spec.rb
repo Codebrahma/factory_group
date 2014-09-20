@@ -8,7 +8,7 @@ describe FactoryGroup::Group do
       user "name"
     end
   end
-  it "stores the factories into the factories hash" do
-    expect(group.factories).to have_key :user
+  it "responds to the user method" do
+    expect(group.factories).to respond_to :user
   end
 end
