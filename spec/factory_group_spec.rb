@@ -20,12 +20,13 @@ describe FactoryGroup do
 
   context "#create" do
     context "when a group with the given name is defined" do
+      let(:user_group){ described_class.create(:user_group) }
       it "returns the created FactoryGroup::Group instance" do
-        expect(described_class.create(:user_group)).to be_an_instance_of OpenStruct
+        expect(user_group).to be_an_instance_of OpenStruct
       end
 
       it "can be used to access the user variable" do
-        expect(described_class.create(:user_group).user).to eq "A User"
+        expect(user_group.user).to eq "A User"
       end
     end
 
