@@ -1,5 +1,6 @@
 require "factory_group/version"
 require "factory_group/group"
+require "factory_group/exceptions/factory_not_defined"
 
 module FactoryGroup
   @registry = {}
@@ -15,6 +16,7 @@ module FactoryGroup
   end
 
   def self.create(name)
+    raise Exceptions::FactoryNotDefined if !registry[name]
     factory_group = registry[name]
     factory_group.factories
   end
