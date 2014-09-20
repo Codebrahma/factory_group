@@ -19,12 +19,23 @@ describe FactoryGroup do
   end
 
   context "#create" do
-    it "returns the created FactoryGroup::Group instance" do
-      expect(described_class.create(:user_group)).to be_an_instance_of OpenStruct
+    context "when a group with the given name is defined" do
+      let(:user_group){ described_class.create(:user_group) }
+      it "returns the created FactoryGroup::Group instance" do
+        expect(user_group).to be_an_instance_of OpenStruct
+      end
+
+      it "can be used to access the user variable" do
+        expect(user_group.user).to eq "A User"
+      end
     end
 
-    it "can be used to access the user variable" do
-      expect(described_class.create(:user_group).user).to eq "A User"
+    context "when a group with the given name is not defined" do
+      it "should raise and exception" do
+        expect{
+          described_class.create(:invalid_user_group)
+        }.to raise_exception(FactoryGroup::Exceptions::FactoryNotDefined)
+      end
     end
   end
 
