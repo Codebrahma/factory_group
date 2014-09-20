@@ -1,10 +1,11 @@
 require "factory_girl"
+require "ostruct"
 
 module FactoryGroup
   class Group
 
     def initialize
-      @factories = {}
+      @factories = OpenStruct.new({})
     end
 
     attr_reader :factories
