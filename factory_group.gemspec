@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Yuvaraja Balamurugan"]
   spec.email         = ["yuv.slm@gmail.com"]
   spec.summary       = %q{Lets you create a group of factories}
-  spec.description   = %q{Lets you create a group of factories which can be accessed from your specs}
+  spec.description   = %q{FactoryGroup provides an abstraction on top of factory_girl, which will help you create reusable groups of factories which can be used across test cases.}
   spec.homepage      = "http://codebrahma.com/factory_group/"
   spec.license       = "MIT"
 
