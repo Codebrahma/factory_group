@@ -17,7 +17,7 @@ module FactoryGroup
 
   def self.create(name)
     raise Exceptions::FactoryNotDefined if !registry[name]
-    factory_group = registry[name]
+    factory_group = registry[name].dup
     factory_group.factories
   end
 end
