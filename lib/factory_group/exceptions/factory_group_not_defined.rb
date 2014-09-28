@@ -1,7 +1,7 @@
 module FactoryGroup
   module Exceptions
 
-    class FactoryNotDefined < StandardError
+    class FactoryGroupNotDefined < StandardError
     end
 
   end

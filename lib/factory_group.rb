@@ -1,6 +1,6 @@
 require "factory_group/version"
 require "factory_group/group"
-require "factory_group/exceptions/factory_not_defined"
+require "factory_group/exceptions/factory_group_not_defined"
 
 module FactoryGroup
   @registry = {}
