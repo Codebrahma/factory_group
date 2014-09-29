@@ -27,4 +27,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rake", ">= 10.3.1"
   spec.add_development_dependency "debugger", "~> 1.6.8"
   spec.add_development_dependency "simplecov", "~> 0.9.0"
+  spec.add_development_dependency "sqlite3", "~> 1.3.9"
+  spec.add_development_dependency "activerecord", "~> 4.1.6"
 end
