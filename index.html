@@ -1,49 +1,48 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
-    <meta charset='utf-8'>
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+    <title>Factory group by Codebrahma</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    <title>Factory group by Codebrahma</title>
   </head>
-
   <body>
-    <div id="container">
-      <div class="inner">
+    <div class="wrapper">
+      <header>
+        <h1>Factory group</h1>
+        <p>An abstraction on top of factory girl</p>
 
-        <header>
-          <h1>Factory group</h1>
-          <h2>An abstraction on top of factory girl</h2>
-        </header>
+        <p class="view"><a href="https://github.com/Codebrahma/factory_group">View the Project on GitHub <small>Codebrahma/factory_group</small></a></p>
 
-        <section id="downloads" class="clearfix">
-          <a href="https://github.com/Codebrahma/factory_group/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
-          <a href="https://github.com/Codebrahma/factory_group/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
-          <a href="https://github.com/Codebrahma/factory_group" id="view-on-github" class="button"><span>View on GitHub</span></a>
-        </section>
 
-        <hr>
-
-        <section id="main_content">
-          <h1>
+        <ul>
+          <li><a href="https://github.com/Codebrahma/factory_group/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/Codebrahma/factory_group/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/Codebrahma/factory_group">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
 <a name="factorygroup" class="anchor" href="#factorygroup"><span class="octicon octicon-link"></span></a>FactoryGroup</h1>
 
 <p>By <a href="http://codebrahma.com">CodeBrahma</a>.</p>
 
 <p>FactoryGroup provides an abstraction on top of factory_girl, which will help you create reusable groups of factories which can be used across test cases.</p>
 
+<p>For now we support only rails applications.</p>
+
 <h2>
 <a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h2>
 
 <p>Add this line to your application's Gemfile:</p>
 
-<pre><code>gem 'factory_group'
+<pre><code>gem 'factory_group', :group =&gt; :test
 </code></pre>
 
 <p>And then execute:</p>
@@ -59,7 +58,33 @@
 <h2>
 <a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
 
-<p>TODO: Write usage instructions here</p>
+<p>Define a factory group</p>
+
+<div class="highlight highlight-ruby"><pre><span class="c1"># spec/factory_groups/user_group.rb</span>
+<span class="no">FactoryGroup</span><span class="o">.</span><span class="n">define</span> <span class="ss">:user_group</span> <span class="k">do</span>
+  <span class="n">user</span> <span class="no">FactoryGirl</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="ss">:user</span><span class="p">,</span> <span class="ss">:name</span> <span class="o">=&gt;</span> <span class="s2">"Rajinikant"</span><span class="p">)</span>
+<span class="k">end</span>
+</pre></div>
+
+<p>Next require the factory_groups folder from the spec_helper</p>
+
+<div class="highlight highlight-ruby"><pre><span class="c1"># spec/spec_helper.rb</span>
+<span class="no">Dir</span><span class="o">[</span><span class="s2">"spec/factory_groups/**/*.rb"</span><span class="o">].</span><span class="n">each</span> <span class="p">{</span> <span class="o">|</span><span class="n">f</span><span class="o">|</span> <span class="nb">require</span> <span class="no">File</span><span class="o">.</span><span class="n">expand_path</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="p">}</span>
+</pre></div>
+
+<p>Now from your spec call <code>FactoryGroup.create(:user_group)</code></p>
+
+<div class="highlight highlight-ruby"><pre><span class="c1"># spec/user_spec.rb</span>
+<span class="n">describe</span> <span class="no">User</span> <span class="k">do</span>
+  <span class="n">let</span><span class="p">(</span><span class="ss">:user_group</span><span class="p">)</span> <span class="p">{</span> <span class="no">FactoryGroup</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="ss">:user_group</span><span class="p">)</span> <span class="p">}</span>
+
+  <span class="n">context</span> <span class="s2">"#name"</span> <span class="k">do</span>
+    <span class="n">it</span> <span class="s2">"returns Rajinikant"</span> <span class="k">do</span>
+      <span class="p">(</span><span class="n">user_group</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">name</span><span class="p">)</span><span class="o">.</span><span class="n">to</span> <span class="n">eq</span> <span class="s2">"Rajinikant"</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</pre></div>
 
 <h2>
 <a name="contributing" class="anchor" href="#contributing"><span class="octicon octicon-link"></span></a>Contributing</h2>
@@ -71,15 +96,13 @@
 <li>Push to the branch (<code>git push origin my-new-feature</code>)</li>
 <li>Create a new Pull Request</li>
 </ol>
-        </section>
-
-        <footer>
-          Factory group is maintained by <a href="https://github.com/Codebrahma">Codebrahma</a><br>
-          This page was generated by <a href="http://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
-        </footer>
-
-        
-      </div>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/Codebrahma">Codebrahma</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
     </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
   </body>
 </html>
