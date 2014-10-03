@@ -28,11 +28,11 @@ Or install it yourself as:
 
 ## Usage
 
-Create a factory group
+Define a factory group
 
 ```ruby
 # spec/factory_groups/user_group.rb
-FactoryGroup.create :user_group do
+FactoryGroup.define :user_group do
   user FactoryGirl.create(:user, :name => "Rajinikant")
 end
 ```
