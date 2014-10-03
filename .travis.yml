@@ -1,11 +1,15 @@
 rvm:
-  - 2.1.0
-  - 2.0.0-p481
-  - 1.9.3
+- 2.1.0
+- 2.0.0-p481
+- 1.9.3
 before_install:
-  - gem update --system
-install: "bundle install"
-script: "CODECLIMATE_REPO_TOKEN=d3636dec3241cd9be3710d4de49e56b5cba3e56cb682dd0025600b67209520b0 bundle exec rspec spec/"
+- gem update --system
+install: bundle install
+script: CODECLIMATE_REPO_TOKEN=d3636dec3241cd9be3710d4de49e56b5cba3e56cb682dd0025600b67209520b0
+  bundle exec rspec spec/
 branches:
   only:
-    - master
+  - master
+notifications:
+  slack:
+    secure: OygKatLhjN4O5Y6Br7PzkqZan+SDoHVaxUJkN/msDY/oBVdobUeknm7hf8EmxTMan3AavsfoXwhdk0Cc/Fy6RYLHRVcBveZAtz4iF8WMu64ogmaP4qhf32AUHLa56iyv7Vn/dK3kStlKI+Ko29mDzglYMONzrU4Lq5iOV3RqgQ8=
