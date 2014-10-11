@@ -20,7 +20,7 @@ Gem::Specification.new do |spec|
 
   spec.required_ruby_version = '>= 1.9.3'
 
-  spec.add_runtime_dependency "factory_girl", ">= 4.4.0"
+  spec.add_runtime_dependency "factory_girl", ">= 4.0.0"
 
   spec.add_development_dependency "rspec", ">= 2.13.0"
   spec.add_development_dependency "bundler", ">= 1.6"
