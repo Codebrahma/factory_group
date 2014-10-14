@@ -53,7 +53,7 @@ describe User do
 
   context "#name" do
     it "returns Rajinikant" do
-      (user_group.user.name).to eq "Rajinikant"
+      expect(user_group.user.name).to eq "Rajinikant"
     end
   end
 end
