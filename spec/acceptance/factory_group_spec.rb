@@ -34,5 +34,36 @@ describe FactoryGroup do
         expect(@user_group.name).to eq "sample"
       end
     end
+
+    describe "with a factory overridden" do
+      before do
+        described_class.define(:user_group) do
+          user FactoryGirl.create(:user)
+        end
+
+        @overriding_user = FactoryGirl.create(:user, :name => "Overridden Name")
+        @user_group = FactoryGroup.create(:user_group, :user => @overriding_user)
+      end
+
+      it "should create the user object with the overridden parameters" do
+        expect(@user_group.user.name).to eq "Overridden Name"
+      end
+    end
+
+    describe "with a factory overridden and used at a later point in time" do
+      before do
+        described_class.define(:user_group) do
+          user FactoryGirl.create(:user)
+          name user.name
+        end
+
+        @overriding_user = FactoryGirl.create(:user, :name => "Overridden Name")
+        @user_group = FactoryGroup.create(:user_group, :user => @overriding_user)
+      end
+
+      it "should use the overridden user object" do
+        expect(@user_group.name).to eq "Overridden Name"
+      end
+    end
   end
 end

@@ -10,15 +10,15 @@ module FactoryGroup
   end
 
   def self.define(name, &block)
-    FactoryGroup.registry[name] = -> {
-      Group.new.tap{ |g| g.instance_eval(&block) }
-    }
+    FactoryGroup.registry[name] = Proc.new do |overrides|
+      Group.new(overrides).tap{ |g| g.instance_eval(&block) }
+    end
   end
 
-  def self.create(name)
+  def self.create(name, overrides = {})
     raise Exceptions::FactoryGroupNotDefined if !registry[name]
 
-    factory_group = registry[name].call
+    factory_group = registry[name].call(overrides)
     factory_group.factories
   end
 end
